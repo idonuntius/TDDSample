@@ -10,18 +10,6 @@ import XCTest
 @testable import TDDSample
 
 class TDDSampleTests: XCTestCase {
-    func testInitializeCard() {
-        var card: Card
-
-        card = Card(rank: .three, suit: .heart)
-        XCTAssertEqual(card.suit, .heart)
-        XCTAssertEqual(card.rank, .three)
-
-        card = Card(rank: .jack, suit: .spade)
-        XCTAssertEqual(card.suit, .spade)
-        XCTAssertEqual(card.rank, .jack)
-    }
-
     func testCardNotation() {
         var card: Card
 
