@@ -21,4 +21,14 @@ class TDDSampleTests: XCTestCase {
         XCTAssertEqual(card.suit, .spade)
         XCTAssertEqual(card.rank, .jack)
     }
+
+    func testCardNotation() {
+        var card: Card
+
+        card = Card(suit: .heart, rank: .three)
+        XCTAssertEqual(card.notation, "3♥")
+
+        card = Card(suit: .spade, rank: .jack)
+        XCTAssertEqual(card.notation, "J♠")
+    }
 }
