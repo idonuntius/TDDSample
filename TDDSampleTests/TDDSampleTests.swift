@@ -64,4 +64,25 @@ class TDDSampleTests: XCTestCase {
             Card(rank: .jack, suit: .club)
         )
     }
+
+    func testHand() {
+        var card1: Card
+        var card2: Card
+        var hand: Hand
+
+        card1 = Card(rank: .king, suit: .spade)
+        card2 = Card(rank: .king, suit: .heart)
+        hand = Hand.resolve(lhs: card1, rhs: card2)
+        XCTAssertEqual(hand, Hand.pair)
+
+        card1 = Card(rank: .ace, suit: .heart)
+        card2 = Card(rank: .king, suit: .heart)
+        hand = Hand.resolve(lhs: card1, rhs: card2)
+        XCTAssertEqual(hand, Hand.flush)
+
+        card1 = Card(rank: .ace, suit: .spade)
+        card2 = Card(rank: .king, suit: .heart)
+        hand = Hand.resolve(lhs: card1, rhs: card2)
+        XCTAssertEqual(hand, Hand.high)
+    }
 }
