@@ -45,4 +45,23 @@ class TDDSampleTests: XCTestCase {
         card2 = Card(rank: .two, suit: .heart)
         XCTAssertFalse(card1.hasSameRank(card2))
     }
+
+    func testCardEqual() {
+        XCTAssertEqual(
+            Card(rank: .jack, suit: .club),
+            Card(rank: .jack, suit: .club)
+        )
+        XCTAssertNotEqual(
+            Card(rank: .queen, suit: .diamond),
+            Card(rank: .jack, suit: .club)
+        )
+        XCTAssertNotEqual(
+            Card(rank: .jack, suit: .diamond),
+            Card(rank: .jack, suit: .club)
+        )
+        XCTAssertNotEqual(
+            Card(rank: .queen, suit: .club),
+            Card(rank: .jack, suit: .club)
+        )
+    }
 }
